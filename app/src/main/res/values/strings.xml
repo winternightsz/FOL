@@ -3,4 +3,5 @@
     <string name="HeaderFrag3">Dados vazão do rio</string>
     <string name="HeaderFrag2">Dados Maré</string>
     <string name="HeaderFrag1">Dados Climáticos</string>
+    <string name="MainTitle">LOF</string>
 </resources>
