@@ -1,31 +1,79 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    android:padding="15dp">
 
+    <!-- Título Principal -->
+    <TextView
+        android:id="@+id/mainTitleLOF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:text="@string/MainTitle"
+        android:textColor="@color/text_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+/>
+
+    <!-- Header -->
     <TextView
         android:id="@+id/headerFrag1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="@color/text_blue"
         android:text="@string/HeaderFrag1"
-        app:layout_constraintBottom_toTopOf="@+id/customBarFrag1"
+        app:layout_constraintTop_toBottomOf="@id/mainTitleLOF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- Filtro para selecionar cidade -->
+    <Spinner
+        android:id="@+id/spinnerFilter"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/text_blue"
+        app:layout_constraintTop_toBottomOf="@id/headerFrag1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/customBarFrag1"/>
+
+    <!-- Gráfico em barras -->
     <com.example.projetoextensao.chart.ChartTemporario
         android:id="@+id/customBarFrag1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrag1" />
+        app:layout_constraintTop_toBottomOf="@id/headerFrag1" />
+
+    <!-- Explicação sobre o gráfico -->
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:textColor="@color/text_blue"
+        android:text="@string/LoremIpsum"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/customBarFrag1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 

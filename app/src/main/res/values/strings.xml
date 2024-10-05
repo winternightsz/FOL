@@ -4,4 +4,12 @@
     <string name="HeaderFrag2">Dados Maré</string>
     <string name="HeaderFrag1">Dados Climáticos</string>
     <string name="MainTitle">LOF</string>
+
+    <string-array name="cities_array">
+        <item>Itajaí</item>
+        <item>Balneário Camboriú</item>
+        <item>Penha</item>
+    </string-array>
+
+    <string name="LoremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
 </resources>
