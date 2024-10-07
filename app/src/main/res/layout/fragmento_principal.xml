@@ -39,13 +39,15 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:radius="0dp"
+        android:padding="35dp"
+        android:drawableTop="@drawable/imgMeteorologico"
         app:backgroundTint="@color/light_blue"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toTopOf="@id/nomeFragPrin2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nomeFragPrin1" />
+        app:layout_constraintTop_toBottomOf="@id/nomeFragPrin1"
+        />
 
     <TextView
         android:id="@+id/nomeFragPrin2"
@@ -65,7 +67,7 @@
         android:id="@+id/botaoTopico2"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:text="Imagem 2"
+        android:drawableTop="@drawable/imgDadoMare"
         app:backgroundTint="@color/light_blue"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +95,8 @@
         android:id="@+id/botaoTopico3"
         android:layout_width="0dp"
         android:layout_height="150dp"
-
-        android:text="Imagem 3"
+        android:padding="35dp"
+        android:drawableTop="@drawable/imgDadoVazao"
         app:backgroundTint="@color/light_blue"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
