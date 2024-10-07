@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">ProjetoExtensao</string>
-    <string name="HeaderFrag3">Dados vazão do rio</string>
-    <string name="HeaderFrag2">Dados Maré</string>
-    <string name="HeaderFrag1">Dados Climáticos</string>
+    <string name="HeaderFrag3">Dados de Vazão do Rio</string>
+    <string name="HeaderFrag2">Dados de Maré</string>
+    <string name="HeaderFrag1">Dados Meteorológicos</string>
     <string name="MainTitle">LOF</string>
 
-    <string-array name="cities_array">
-        <item>Itajaí</item>
-        <item>Balneário Camboriú</item>
-        <item>Penha</item>
+    <string-array name="filtro_opcoes">
+        <item>24 horas</item>
+        <item>7 dias</item>
+        <item>15 dias</item>
+        <item>1 mês</item>
     </string-array>
 
     <string name="LoremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>

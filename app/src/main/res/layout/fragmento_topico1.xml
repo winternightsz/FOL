@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-/>
+    />
 
     <!-- Header -->
     <TextView
@@ -31,6 +31,17 @@
         android:textColor="@color/text_blue"
         android:text="@string/HeaderFrag1"
         app:layout_constraintTop_toBottomOf="@id/mainTitleLOF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/cidadeFrag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/text_blue"
+        android:text="Itajaí"
+        app:layout_constraintTop_toBottomOf="@id/headerFrag1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -61,7 +72,7 @@
 
     <!-- Explicação sobre o gráfico -->
     <TextView
-        android:id="@+id/cityName"
+        android:id="@+id/caixaDescricao1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
