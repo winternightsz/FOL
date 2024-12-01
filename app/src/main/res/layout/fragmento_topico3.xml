@@ -1,89 +1,173 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="0dp">
 
-    <!-- Título Principal -->
-    <TextView
-        android:id="@+id/mainTitleLOF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:text="@string/MainTitle"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <!-- Header -->
-    <TextView
-        android:id="@+id/headerFrag3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"
-        android:textColor="@color/dark_blue"
-        android:text="@string/HeaderFrag3"
-        app:layout_constraintTop_toBottomOf="@id/mainTitleLOF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/cidadeFrag3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/dark_blue"
-        android:text="Indaial"
-        app:layout_constraintTop_toBottomOf="@id/headerFrag3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <!-- Filtro para selecionar cidade -->
-    <Spinner
-        android:id="@+id/spinnerFilter"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintTop_toBottomOf="@id/cidadeFrag3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/customBarFrag3"/>
-
-    <!-- Gráfico em barras -->
-    <com.example.projetoextensao.chart.ChartTemporario
-        android:id="@+id/customBarFrag3"
+    <LinearLayout
+        android:id="@+id/linearLayoutPrincipal"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerFrag3" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <!-- Explicação sobre o gráfico -->
-    <TextView
-        android:id="@+id/caixaDescricao3"
-        android:layout_width="wrap_content"
+        <!-- Título e cidade -->
+        <TextView
+            android:id="@+id/tituloTopo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/header_title"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="ITAJAÍ"
+            android:textColor="@color/dark_blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Filtro de Tempo com Botões -->
+        <LinearLayout
+            android:id="@+id/linearLayoutFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="25dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn24h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="24h"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn7d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="7d"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn15d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="15d"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn1m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="1m"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Gráfico em barras -->
+        <com.example.projetoextensao.chart.ChartTemporario
+            android:id="@+id/customBarFrag2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="100dp" />
+    </LinearLayout>
+
+    <!-- Botões Menu Principal -->
+    <LinearLayout
+        android:id="@+id/linearLayoutMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:padding="10dp"
-        android:textColor="@color/dark_blue"
-        android:text="@string/LoremIpsum"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@id/customBarFrag3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutLogos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <Button
+            android:id="@+id/botaoTopico1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu1"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/botaoTopico2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu2"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/botaoTopico3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu3"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+    </LinearLayout>
+
+    <!-- Logotipos na parte inferior -->
+    <LinearLayout
+        android:id="@+id/linearLayoutLogos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/logoUnivali"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_univali" />
+
+        <ImageView
+            android:id="@+id/logoOutro"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

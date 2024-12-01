@@ -5,107 +5,305 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#81B4BA"
-    android:padding="30dp">
+    android:backgroundTint="#81B4BA">
 
-    <TextView
-        android:id="@+id/mainTitleLOF"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Título e cidade -->
+        <TextView
+            android:id="@+id/tituloTopo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/header_title"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="ITAJAÍ"
+            android:textColor="@color/dark_blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Filtro de Tempo com Botões -->
+        <LinearLayout
+            android:id="@+id/linearLayoutFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="25dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn24h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="24h"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn7d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="7d"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn15d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="15d"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn1m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/filter_time_background"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="1m"
+                android:textColor="@color/dark_blue"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tituloPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="TEMPERATURA (° C)"
+            android:textColor="@color/dark_blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Temperatura -->
+        <TextView
+            android:id="@+id/tituloTemperatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="18°"
+            android:textSize="48sp" />
+
+        <!-- Minima e Máxima -->
+        <LinearLayout
+            android:id="@+id/linearLayoutTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Temperatura Mínima -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/light_blue_background"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tempMinima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mínima"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/valorTempMinima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12°"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/horarioTempMinima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08:59  |  08/10/2024"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Temperatura Máxima -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/light_blue_background"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tempMaxima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Máxima"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/valorTempMaxima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20°"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/horarioTempMaxima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:45  |  08/10/2024"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tituloVento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="5dp"
+            android:text="VENTO"
+            android:textColor="@color/dark_blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Seção de Vento -->
+        <LinearLayout
+            android:id="@+id/linearLayoutVento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/light_blue_background"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDirecaoVento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:text="Sudeste"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvVelocidadeVento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:text="10 Km/h"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botões Menu Principal -->
+    <LinearLayout
+        android:id="@+id/linearLayoutMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:text="@string/MainTitle"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutLogos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/nomeFragPrin1"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/botaoTopico1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu1"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/botaoTopico2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu2"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/botaoTopico3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_menu"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu3"
+            android:textColor="@color/dark_blue"
+            app:backgroundTint="@null"/>
+        </LinearLayout>
+
+    <!-- Logotipos na parte inferior -->
+    <LinearLayout
+        android:id="@+id/linearLayoutLogos"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:textColor="@color/dark_blue"
-        android:text="@string/HeaderFrag1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/botaoTopico1"
-        app:layout_constraintTop_toBottomOf="@id/mainTitleLOF"/>
-
-    <Button
-        android:id="@+id/botaoTopico1"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:radius="0dp"
-        android:padding="35dp"
-        android:drawableTop="@drawable/img_meteorologico"
-        app:backgroundTint="@color/light_blue"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@id/nomeFragPrin2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nomeFragPrin1"
-        />
-
-    <TextView
-        android:id="@+id/nomeFragPrin2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:text="@string/HeaderFrag2"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/botaoTopico1"
-        app:layout_constraintBottom_toTopOf="@id/botaoTopico2" />
-
-    <Button
-        android:id="@+id/botaoTopico2"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:drawableTop="@drawable/img_mare"
-        app:backgroundTint="@color/light_blue"
-        app:cornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nomeFragPrin2"
-        app:layout_constraintBottom_toTopOf="@id/nomeFragPrin3"/>
-
-    <TextView
-        android:id="@+id/nomeFragPrin3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:text="@string/HeaderFrag3"
-        android:textColor="@color/dark_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/botaoTopico2"
-        app:layout_constraintBottom_toTopOf="@id/botaoTopico3"/>
-
-    <Button
-        android:id="@+id/botaoTopico3"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:padding="35dp"
-        android:drawableTop="@drawable/img_vazao"
-        app:backgroundTint="@color/light_blue"
-        app:cornerRadius="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nomeFragPrin3"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <ImageView
+            android:id="@+id/logoUnivali"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_univali" />
+
+        <ImageView
+            android:id="@+id/logoOutro"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
