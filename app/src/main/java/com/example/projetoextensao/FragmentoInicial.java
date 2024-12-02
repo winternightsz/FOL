@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.projetoextensao.fragmentos.FragmentoTopico1;
+
 public class FragmentoInicial extends Fragment {
 
     @Nullable
@@ -16,17 +18,19 @@ public class FragmentoInicial extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_inicial, container, false);
 
-        //isso vai fazer um timer para mudar automaticamente para a tela principal depois de 3 segundos
+        // Exibir a tela inicial por 3 segundos antes de mudar para o próximo fragmento
         new Handler().postDelayed(() -> {
             if (getActivity() != null) {
+                MainActivity mainActivity = (MainActivity) getActivity();
 
-                //trocar para a tela principal sem adicionar o FragmentoInicial na pilha do backstack
-                ((MainActivity) getActivity()).trocarFragmentoSemVoltar(new FragmentoPrincipal());
+                // Trocar para o FragmentoTopico1
+                mainActivity.trocarFragmentoSemVoltar(new FragmentoTopico1());
 
+                // Tornar os botões visíveis
+                mainActivity.setBotaoVisibilidade(true);
             }
         }, 3000);
 
         return view;
     }
 }
-

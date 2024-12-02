@@ -52,11 +52,14 @@ public class ChartTemporario extends View {
         }
     }
 
-//    public void colocarValores(float[] novosValores, String[] novosLabels) {
-//        this.valores = novosValores;
-//        this.labels = novosLabels;
-//        invalidate();  //vai forcar o redesenho da View
-//    }
+    public void atualizarDados(float[] novosValores, String[] novosLabels) {
+        if (novosValores != null && novosLabels != null && novosValores.length == novosLabels.length) {
+            this.valores = novosValores;
+            this.labels = novosLabels;
+            invalidate(); // Redesenha o gráfico com os novos dados
+        }
+    }
+
 
 
 

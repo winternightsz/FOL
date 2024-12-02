@@ -23,6 +23,7 @@ public class FragmentoTopico3 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_topico3, container, false);
 
+        /*
         Spinner filtro = view.findViewById(R.id.spinnerFilter);
 
         // Adiciona as opções de tempo ao Spinner
@@ -44,7 +45,7 @@ public class FragmentoTopico3 extends Fragment {
                 // Não faz nada se nada for selecionado
             }
         });
-
+        */
         return view;
     }
 

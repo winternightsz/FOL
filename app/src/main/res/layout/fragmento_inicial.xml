@@ -8,8 +8,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:background="#FEFEFE"
+        android:src="@drawable/logo" />
 
 </FrameLayout>
 

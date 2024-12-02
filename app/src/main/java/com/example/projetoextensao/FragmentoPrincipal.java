@@ -19,6 +19,7 @@ public class FragmentoPrincipal extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_principal, container, false);
 
+
         // Configurando os botões para trocar fragmentos
         view.findViewById(R.id.botaoTopico1).setOnClickListener(v -> {
             if (getActivity() != null) {

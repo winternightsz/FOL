@@ -1,77 +1,92 @@
 package com.example.projetoextensao;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import com.example.projetoextensao.fragmentos.FragmentoTopico1;
+import com.example.projetoextensao.fragmentos.FragmentoTopico2;
+import com.example.projetoextensao.fragmentos.FragmentoTopico3;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button botaoSelecionado; // Variável para armazenar o botão atualmente selecionado
+    private Button botaoTopico1, botaoTopico2, botaoTopico3; // Botões principais
+    private ImageView logoUni, logoOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //vai mostrar o fragmento inicial (logozinha) quando iniciar o app
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new FragmentoInicial())
-                    .commit();
-        }
+        // Inicializar botões
+        botaoTopico1 = findViewById(R.id.botaoTopico1);
+        botaoTopico2 = findViewById(R.id.botaoTopico2);
+        botaoTopico3 = findViewById(R.id.botaoTopico3);
 
-        //vai configurar o OnBackPressedDispatcher para controlar o botao de voltar
-        //porque se nao ta voltando pra logo
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                //vai verificar se tem fragmentos no back stack
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    getSupportFragmentManager().popBackStack();  //voltar ao fragmento anterior
-                } else {
-                    finish();  //fecha o app se nao tiver fragmentos na pilha
-                }
+        logoUni = findViewById(R.id.logoUnivali);
+        logoOut = findViewById(R.id.logoOutro);
+
+        // Esconder botões inicialmente
+        setBotaoVisibilidade(false);
+
+        // Configurar listener para troca de fragmentos e atualização do estado do botão
+        View.OnClickListener listener = view -> {
+            // Redefinir o estado do botão anteriormente selecionado
+            if (botaoSelecionado != null) {
+                botaoSelecionado.setSelected(false);
+            }
+
+            // Marcar o botão clicado como selecionado
+            view.setSelected(true);
+            botaoSelecionado = (Button) view; // Atualizar o botão selecionado
+
+            // Trocar para o fragmento correspondente
+            if (view.getId() == R.id.botaoTopico1) {
+                trocarFragmento(new FragmentoTopico1());
+            } else if (view.getId() == R.id.botaoTopico2) {
+                trocarFragmento(new FragmentoTopico2());
+            } else if (view.getId() == R.id.botaoTopico3) {
+                trocarFragmento(new FragmentoTopico3());
             }
         };
-        getOnBackPressedDispatcher().addCallback(this, callback);
 
+        // Configurar listeners nos botões
+        botaoTopico1.setOnClickListener(listener);
+        botaoTopico2.setOnClickListener(listener);
+        botaoTopico3.setOnClickListener(listener);
+
+        // Mostrar o FragmentoInicial
+        if (savedInstanceState == null) {
+            trocarFragmento(new FragmentoInicial());
+            botaoTopico1.setSelected(true); // Marcar o primeiro botão como selecionado
+            botaoSelecionado = botaoTopico1; // Atualizar o botão selecionado
+        }
     }
 
-
-    //metodo para trocar fragmentos sem adicionar a pilha de voltar
-    public void trocarFragmentoSemVoltar(Fragment fragmento) {
+    // Método para trocar fragmentos
+    public void trocarFragmento(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragmento)
-                .commit();  //nao usa addToBackStack
-    }
-
-
-    //fragments lib
-    //Add this transaction to the back stack.
-    // This means that the transaction will be remembered after it is committed,
-    // and will reverse its operation when later popped off the stack.
-    //setReorderingAllowed(boolean) must be set to true in the same
-    // transaction as addToBackStack() to allow the pop of that transaction to be reordered.
-
-    //metodo padrao para trocar fragmentos com back stack
-    public void trocarFragmento(Fragment fragmento) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragmento)
-                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
                 .commit();
     }
 
+    public void trocarFragmentoSemVoltar(Fragment fragmento) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragmento)
+                .commit(); // Não adiciona ao BackStack
+    }
 
-
-//foi deprecated entao usa outro
-//    @Override
-//    public void onBackPressed() {
-//
-//        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-//            getSupportFragmentManager().popBackStack();
-//        } else {
-//            super.onBackPressed(); //fechar o app se nao houver fragmentos na pilha
-//        }
-//    }
-
+    // Método para gerenciar a visibilidade dos botões
+    public void setBotaoVisibilidade(boolean visivel) {
+        int visibilidade = visivel ? View.VISIBLE : View.GONE;
+        botaoTopico1.setVisibility(visibilidade);
+        botaoTopico2.setVisibility(visibilidade);
+        botaoTopico3.setVisibility(visibilidade);
+        logoUni.setVisibility(visibilidade);
+        logoOut.setVisibility(visibilidade);
+    }
 }
-

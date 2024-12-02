@@ -13,4 +13,7 @@
     </string-array>
 
     <string name="LoremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="option_menu1">Meteorológico</string>
+    <string name="option_menu2">Maré</string>
+    <string name="option_menu3">Vazão do Rio</string>
 </resources>

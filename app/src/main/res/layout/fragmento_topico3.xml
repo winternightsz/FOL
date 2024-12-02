@@ -97,7 +97,7 @@
     </LinearLayout>
 
     <!-- Botões Menu Principal -->
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/linearLayoutMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -143,10 +143,10 @@
             android:text="@string/option_menu3"
             android:textColor="@color/dark_blue"
             app:backgroundTint="@null"/>
-    </LinearLayout>
+    </LinearLayout> -->
 
     <!-- Logotipos na parte inferior -->
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/linearLayoutLogos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/logo" />
-    </LinearLayout>
+    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

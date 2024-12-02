@@ -1,8 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FEFEFE"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    />
+    android:layout_height="match_parent">
+
+    <!-- Container para os fragmentos -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FEFEFE"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Layout dos botões -->
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEFEFE"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_container">
+
+        <Button
+            android:id="@+id/botaoTopico1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/botao_frags"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu1"
+            android:textColor="@drawable/botao_frags_texto"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/botaoTopico2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/botao_frags"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu2"
+            android:textColor="@drawable/botao_frags_texto"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/botaoTopico3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botao_frags"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/option_menu3"
+            android:textColor="@drawable/botao_frags_texto"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+    <!-- Logotipos abaixo dos botões -->
+    <LinearLayout
+        android:id="@+id/linearLayoutLogos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEFEFE"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/button_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/logoUnivali"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/logo_univali" />
+
+        <ImageView
+            android:id="@+id/logoOutro"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

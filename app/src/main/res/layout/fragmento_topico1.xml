@@ -1,9 +1,12 @@
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="#FEFEFE"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <!-- Título Principal -->
     <TextView
@@ -15,10 +18,9 @@
         android:textStyle="bold"
         android:text="@string/MainTitle"
         android:textColor="@color/dark_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-    />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Header -->
     <TextView
@@ -27,13 +29,14 @@
         android:layout_height="wrap_content"
         android:textSize="23sp"
         android:textStyle="bold"
-        android:layout_margin="10dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/dark_blue"
         android:text="@string/HeaderFrag1"
         app:layout_constraintTop_toBottomOf="@id/mainTitleLOF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Cidade -->
     <TextView
         android:id="@+id/cidadeFrag1"
         android:layout_width="wrap_content"
@@ -42,23 +45,20 @@
         android:textColor="@color/dark_blue"
         android:text="Itajaí"
         app:layout_constraintTop_toBottomOf="@id/headerFrag1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Filtro para selecionar cidade -->
     <Spinner
         android:id="@+id/spinnerFilter"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/dark_blue"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/cidadeFrag1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tituloPrincipal"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Título Temperatura -->
     <TextView
         android:id="@+id/tituloPrincipal"
         android:layout_width="wrap_content"
@@ -67,12 +67,10 @@
         android:textSize="18sp"
         android:textColor="@color/dark_blue"
         android:textStyle="bold"
-        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/spinnerFilter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tituloTemperatura"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Temperatura -->
     <TextView
@@ -81,24 +79,22 @@
         android:layout_height="wrap_content"
         android:text="18°"
         android:textSize="48sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tituloTemperatura"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tituloPrincipal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/linearLayoutTemp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Minima e Máxima -->
+    <!-- Mínima e Máxima -->
     <LinearLayout
         android:id="@+id/linearLayoutTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/tituloTemperatura"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tituloVento">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Temperatura Mínima -->
         <LinearLayout
@@ -107,8 +103,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="2dp"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/light_blue_background">
 
             <TextView
@@ -116,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mínima"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/valorTempMinima"
@@ -124,14 +119,14 @@
                 android:layout_height="wrap_content"
                 android:text="12°"
                 android:textStyle="bold"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/horarioTempMinima"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="08:59  |  08/10/2024"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Temperatura Máxima -->
@@ -141,8 +136,7 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/light_blue_background">
 
             <TextView
@@ -150,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Máxima"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/valorTempMaxima"
@@ -158,17 +152,18 @@
                 android:layout_height="wrap_content"
                 android:text="20°"
                 android:textStyle="bold"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/horarioTempMaxima"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12:45  |  08/10/2024"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Vento -->
     <TextView
         android:id="@+id/tituloVento"
         android:layout_width="wrap_content"
@@ -177,13 +172,10 @@
         android:textSize="18sp"
         android:textColor="@color/dark_blue"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutTemp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/linearLayoutVento"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Seção de Vento -->
     <LinearLayout
@@ -193,12 +185,10 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="150dp"
         android:background="@drawable/light_blue_background"
         app:layout_constraintTop_toBottomOf="@id/tituloVento"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
+
 
         <TextView
             android:id="@+id/tvDirecaoVento"
@@ -218,7 +208,4 @@
             android:layout_gravity="center"
             android:layout_marginLeft="15dp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
