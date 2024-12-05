@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Trocar para o fragmento correspondente
             if (view.getId() == R.id.botaoTopico1) {
-                trocarFragmento(new FragmentoTopico1());
+                trocarFragmento(new FragmentoPrincipal());
             } else if (view.getId() == R.id.botaoTopico2) {
                 trocarFragmento(new FragmentoTopico2());
             } else if (view.getId() == R.id.botaoTopico3) {

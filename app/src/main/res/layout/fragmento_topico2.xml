@@ -92,12 +92,14 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Gráfico em barras -->
-        <com.example.projetoextensao.chart.ChartTemporario
-            android:id="@+id/customBarFrag2"
+        <!-- Gráfico em barras tem que ser trocad pra algum outro grafico tipo de linhas -->
+        <com.example.projetoextensao.chart.CustomLineChart
+            android:id="@+id/lineChartFrag2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="16dp" />
+
+
 
         <!-- Botão Baixar Tabela de Dados -->
         <Button

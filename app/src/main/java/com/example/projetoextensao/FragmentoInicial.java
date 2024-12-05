@@ -24,7 +24,7 @@ public class FragmentoInicial extends Fragment {
                 MainActivity mainActivity = (MainActivity) getActivity();
 
                 // Trocar para o FragmentoTopico1
-                mainActivity.trocarFragmentoSemVoltar(new FragmentoTopico1());
+                mainActivity.trocarFragmentoSemVoltar(new FragmentoPrincipal());
 
                 // Tornar os botões visíveis
                 mainActivity.setBotaoVisibilidade(true);

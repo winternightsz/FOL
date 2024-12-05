@@ -89,85 +89,13 @@
         </LinearLayout>
 
         <!-- Gráfico em barras -->
-        <com.example.projetoextensao.chart.ChartTemporario
-            android:id="@+id/customBarFrag2"
+        <com.example.projetoextensao.chart.CustomLineChart
+            android:id="@+id/lineChartFrag3"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginBottom="100dp" />
+            android:layout_marginBottom="16dp" />
+
     </LinearLayout>
-
-    <!-- Botões Menu Principal -->
-    <!--<LinearLayout
-        android:id="@+id/linearLayoutMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutLogos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <Button
-            android:id="@+id/botaoTopico1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/button_menu"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/option_menu1"
-            android:textColor="@color/dark_blue"
-            app:backgroundTint="@null"/>
-
-        <Button
-            android:id="@+id/botaoTopico2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/button_menu"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/option_menu2"
-            android:textColor="@color/dark_blue"
-            app:backgroundTint="@null"/>
-
-        <Button
-            android:id="@+id/botaoTopico3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_menu"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/option_menu3"
-            android:textColor="@color/dark_blue"
-            app:backgroundTint="@null"/>
-    </LinearLayout> -->
-
-    <!-- Logotipos na parte inferior -->
-    <!--<LinearLayout
-        android:id="@+id/linearLayoutLogos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageView
-            android:id="@+id/logoUnivali"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/logo_univali" />
-
-        <ImageView
-            android:id="@+id/logoOutro"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/logo" />
-    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
