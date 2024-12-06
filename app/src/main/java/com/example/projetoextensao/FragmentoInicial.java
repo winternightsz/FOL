@@ -18,15 +18,15 @@ public class FragmentoInicial extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_inicial, container, false);
 
-        // Exibir a tela inicial por 3 segundos antes de mudar para o próximo fragmento
+        // Mostrar a tela inicial por 3 segundos antes de mudar para o propximo fragmento
         new Handler().postDelayed(() -> {
             if (getActivity() != null) {
                 MainActivity mainActivity = (MainActivity) getActivity();
 
-                // Trocar para o FragmentoTopico1
+                // Trocar para o FragmentoPrincipal
                 mainActivity.trocarFragmentoSemVoltar(new FragmentoPrincipal());
 
-                // Tornar os botões visíveis
+                // Tornar os botoes visiveis
                 mainActivity.setBotaoVisibilidade(true);
             }
         }, 3000);

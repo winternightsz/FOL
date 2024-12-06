@@ -24,15 +24,15 @@ public class FragmentoPrincipal extends Fragment {
 
     private TextView tituloTemperatura, tempMinima, tempMaxima, direcaoVento, velocidadeVento;
     private Button btn24h, btn7d, btn15d, btn1m;
-    private boolean usarMock = true; // Alternar entre API real e Mock
-
+    private Button botaoSelecionado;
+    private boolean usarMock = true; // alterna entre API real e dados Mock
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_principal, container, false);
 
-        // Inicializar elementos da interface
+        // inicializa elementos da interface
         tituloTemperatura = view.findViewById(R.id.tituloTemperatura);
         tempMinima = view.findViewById(R.id.valorTempMinima);
         tempMaxima = view.findViewById(R.id.valorTempMaxima);
@@ -44,28 +44,59 @@ public class FragmentoPrincipal extends Fragment {
         btn15d = view.findViewById(R.id.btn15d);
         btn1m = view.findViewById(R.id.btn1m);
 
-        // Configurar eventos dos botões
-        btn24h.setOnClickListener(v -> carregarDados("24h"));
-        btn7d.setOnClickListener(v -> carregarDados("7d"));
-        btn15d.setOnClickListener(v -> carregarDados("15d"));
-        btn1m.setOnClickListener(v -> carregarDados("1m"));
+        carregarDados("24h");
+        // configurar evento de clique para os botoes
+        View.OnClickListener listener = v -> {
+            // atualiza o estado do botao selecionado
+            if (botaoSelecionado != null) {
+                botaoSelecionado.setSelected(false); // desmarca o botao anteriormente selecionado
+            }
+
+            v.setSelected(true); // marca o botao atual como selecionado
+            botaoSelecionado = (Button) v; // atualiza a referencia do botao selecionado
+
+            // chama o metodo para carregar os dados  do botao que foi selecionado
+            String intervalo = "";
+            if (v == btn24h) {
+                intervalo = "24h";
+            } else if (v == btn7d) {
+                intervalo = "7d";
+            } else if (v == btn15d) {
+                intervalo = "15d";
+            } else if (v == btn1m) {
+                intervalo = "1m";
+            }
+
+            carregarDados(intervalo);
+        };
+
+        // associa o listener aos botoes
+        btn24h.setOnClickListener(listener);
+        btn7d.setOnClickListener(listener);
+        btn15d.setOnClickListener(listener);
+        btn1m.setOnClickListener(listener);
+
+        if (savedInstanceState == null) {
+            btn24h.setSelected(true); // marca o primeiro botao como selecionado
+            botaoSelecionado = btn24h; // atualiza o botao selecionado
+        }
 
         return view;
     }
 
     private void carregarDados(String intervalo) {
         if (usarMock) {
-            // Simulacao de dados
+            //dados do mock
             DadosClimaticos dados = MockApiClimaService.getDadosMock(intervalo);
 
-            // Atualizar a interface com os dados falsos
+            // atualiza com os dados
             tituloTemperatura.setText(dados.temperaturaAtual + "°");
             tempMinima.setText(dados.temperaturaMinima + "°");
             tempMaxima.setText(dados.temperaturaMaxima + "°");
             direcaoVento.setText(dados.direcaoVento);
             velocidadeVento.setText(dados.velocidadeVento + " Km/h");
         } else {
-            // API Real
+
             ApiClimaService apiService = RetrofitClient.getClient("https://api.com/").create(ApiClimaService.class);
 
             apiService.getDadosClimaticos(intervalo).enqueue(new Callback<DadosClimaticos>() {
@@ -74,7 +105,6 @@ public class FragmentoPrincipal extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         DadosClimaticos dados = response.body();
 
-                        // Atualizar a interface com os dados reais
                         tituloTemperatura.setText(dados.temperaturaAtual + "°");
                         tempMinima.setText(dados.temperaturaMinima + "°");
                         tempMaxima.setText(dados.temperaturaMaxima + "°");
@@ -92,5 +122,4 @@ public class FragmentoPrincipal extends Fragment {
             });
         }
     }
-
 }

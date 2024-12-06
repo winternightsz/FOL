@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiClimaService {
-    @GET("clima/atual") // Substitua pelo endpoint correto
+    @GET("clima/atual") //Aqui colocar o endpoint da api
     Call<DadosClimaticos> getDadosClimaticos(@Query("intervalo") String intervalo);
 }

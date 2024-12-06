@@ -29,40 +29,65 @@ public class FragmentoTopico3 extends Fragment {
 
     private CustomLineChart lineChart;
     private Button btn24h, btn7d, btn15d, btn1m;
-    private boolean usarMock = true; // Alternar entre API real e dados Mock
+    private Button botaoSelecionado;
+    private boolean usarMock = true;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_topico3, container, false);
 
-        // Inicializar elementos da interface
         lineChart = view.findViewById(R.id.lineChartFrag3);
         btn24h = view.findViewById(R.id.btn24h);
         btn7d = view.findViewById(R.id.btn7d);
         btn15d = view.findViewById(R.id.btn15d);
         btn1m = view.findViewById(R.id.btn1m);
 
-        // Configurar eventos dos botões
-        btn24h.setOnClickListener(v -> carregarDados("24h"));
-        btn7d.setOnClickListener(v -> carregarDados("7d"));
-        btn15d.setOnClickListener(v -> carregarDados("15d"));
-        btn1m.setOnClickListener(v -> carregarDados("1m"));
-
-        // Carregar dados padrão
         carregarDados("24h");
+
+        View.OnClickListener listener = v -> {
+            if (botaoSelecionado != null) {
+                botaoSelecionado.setSelected(false);
+            }
+
+            v.setSelected(true);
+            botaoSelecionado = (Button) v;
+
+            String intervalo = "";
+            if (v == btn24h) {
+                intervalo = "24h";
+            } else if (v == btn7d) {
+                intervalo = "7d";
+            } else if (v == btn15d) {
+                intervalo = "15d";
+            } else if (v == btn1m) {
+                intervalo = "1m";
+            }
+
+            carregarDados(intervalo);
+        };
+
+
+        btn24h.setOnClickListener(listener);
+        btn7d.setOnClickListener(listener);
+        btn15d.setOnClickListener(listener);
+        btn1m.setOnClickListener(listener);
+
+
+        if (savedInstanceState == null) {
+            btn24h.setSelected(true);
+            botaoSelecionado = btn24h;
+        }
 
         return view;
     }
 
     private void carregarDados(String intervalo) {
         if (usarMock) {
-            // Usar dados falsos
             DadosVazaoRio dados = MockApiVazaoService.getDadosMock(intervalo);
             atualizarGrafico(dados.valores, dados.labels);
         } else {
-            // Usar API real
-            ApiVazaoService apiService = RetrofitClient.getClient("https://sua-api-fragmento3.com/").create(ApiVazaoService.class);
+            ApiVazaoService apiService = RetrofitClient.getClient("https://api-vazao.com/").create(ApiVazaoService.class);
             apiService.getDadosFragmento3(intervalo).enqueue(new Callback<DadosVazaoRio>() {
                 @Override
                 public void onResponse(Call<DadosVazaoRio> call, Response<DadosVazaoRio> response) {

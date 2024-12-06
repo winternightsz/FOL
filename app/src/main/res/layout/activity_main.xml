@@ -26,6 +26,7 @@
         android:layout_margin="10dp"
         android:orientation="vertical"
         android:padding="5dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_container">
@@ -81,15 +82,15 @@
 
         <ImageView
             android:id="@+id/logoUnivali"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="45dp"
             android:src="@drawable/logo_univali" />
 
         <ImageView
             android:id="@+id/logoOutro"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/logo" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

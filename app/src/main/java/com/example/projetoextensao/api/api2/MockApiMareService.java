@@ -21,8 +21,8 @@ public class MockApiMareService {
                 dados.labels = Arrays.asList("Dia 1", "Dia 3", "Dia 5", "Dia 7", "Dia 9", "Dia 11", "Dia 13");
                 break;
             case "1m":
-                dados.valores = Arrays.asList(1.0f, 1.6f, 1.8f, 2.5f, 2.0f, 1.9f, 1.7f);
-                dados.labels = Arrays.asList("Sem 1", "Sem 2", "Sem 3", "Sem 4");
+                dados.valores = Arrays.asList(1.0f, 1.6f, 2.5f, 2.0f, 1.9f);
+                dados.labels = Arrays.asList("00h", "06h", "12h", "18h", "24h");
                 break;
             default:
                 dados.valores = Arrays.asList();

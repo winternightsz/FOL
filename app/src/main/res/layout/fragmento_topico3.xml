@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteX="65dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <!-- Título e cidade -->
+
         <TextView
             android:id="@+id/tituloTopo"
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Filtro de Tempo com Botões -->
+
         <LinearLayout
             android:id="@+id/linearLayoutFiltro"
             android:layout_width="match_parent"
@@ -45,10 +45,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:background="@drawable/filter_time_background"
+                app:backgroundTint="@null"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="24h"
-                android:textColor="@color/dark_blue"
+                android:textColor="@drawable/time_text"
                 android:textSize="14sp" />
 
             <Button
@@ -57,10 +58,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:background="@drawable/filter_time_background"
+                app:backgroundTint="@null"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="7d"
-                android:textColor="@color/dark_blue"
+                android:textColor="@drawable/time_text"
                 android:textSize="14sp" />
 
             <Button
@@ -69,10 +71,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:background="@drawable/filter_time_background"
+                app:backgroundTint="@null"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="15d"
-                android:textColor="@color/dark_blue"
+                android:textColor="@drawable/time_text"
                 android:textSize="14sp" />
 
             <Button
@@ -81,14 +84,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:background="@drawable/filter_time_background"
+                app:backgroundTint="@null"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="1m"
-                android:textColor="@color/dark_blue"
+                android:textColor="@drawable/time_text"
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <!-- Gráfico em barras -->
+
         <com.example.projetoextensao.chart.CustomLineChart
             android:id="@+id/lineChartFrag3"
             android:layout_width="match_parent"

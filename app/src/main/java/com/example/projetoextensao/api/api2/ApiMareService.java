@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiMareService {
-    @GET("mare/dados") // Substitua pelo endpoint correto
+    @GET("mare/dados")
     Call<DadosMare> getDadosMare(@Query("intervalo") String intervalo);
 }

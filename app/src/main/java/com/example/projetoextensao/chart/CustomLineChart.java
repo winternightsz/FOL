@@ -13,8 +13,8 @@ import java.util.List;
 public class CustomLineChart extends View {
 
     private Paint linePaint, pointPaint, textPaint, gridPaint;
-    private List<Float> dataPoints; // Lista de pontos no eixo Y
-    private List<String> labels;   // Lista de rótulos no eixo X
+    private List<Float> dataPoints; // lista de pontos no eixo Y
+    private List<String> labels;   // lista de rotulos no eixo X
 
     public CustomLineChart(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -22,28 +22,28 @@ public class CustomLineChart extends View {
     }
 
     private void init() {
-        // Configurações de estilo para a linha
+        // linha
         linePaint = new Paint();
         linePaint.setColor(Color.BLUE);
         linePaint.setStrokeWidth(5f);
         linePaint.setStyle(Paint.Style.STROKE);
 
-        // Configurações para os pontos
+        // pontos
         pointPaint = new Paint();
         pointPaint.setColor(Color.RED);
         pointPaint.setStyle(Paint.Style.FILL);
 
-        // Configurações para o texto
+        // texto
         textPaint = new Paint();
         textPaint.setColor(Color.BLACK);
         textPaint.setTextSize(30f);
 
-        // Configurações para a grade
+        // grade
         gridPaint = new Paint();
         gridPaint.setColor(Color.LTGRAY);
         gridPaint.setStrokeWidth(2f);
 
-        // Dados padrão
+        // dados
         dataPoints = new ArrayList<>();
         labels = new ArrayList<>();
     }
@@ -59,7 +59,7 @@ public class CustomLineChart extends View {
         super.onDraw(canvas);
 
         if (dataPoints == null || dataPoints.isEmpty() || labels == null || labels.size() != dataPoints.size()) {
-            return; // Nada para desenhar
+            return; // nada pra desenhar
         }
 
         int width = getWidth();
@@ -69,19 +69,19 @@ public class CustomLineChart extends View {
         int graphWidth = width - (2 * padding);
         int graphHeight = height - (2 * padding);
 
-        // Determinar escalas
+        // determina escalas
         float maxData = getMax(dataPoints);
         float xInterval = graphWidth / (float) (dataPoints.size() - 1);
         float yScale = graphHeight / maxData;
 
-        // Desenhar grade horizontal
+        // desenha grade horizontal
         for (int i = 0; i <= 5; i++) {
             float y = padding + i * (graphHeight / 5f);
             canvas.drawLine(padding, y, padding + graphWidth, y, gridPaint);
             canvas.drawText(String.format("%.1f", maxData - (i * maxData / 5)), 10, y + 10, textPaint);
         }
 
-        // Desenhar grade vertical
+        // desenha grade vertical
         for (int i = 0; i < dataPoints.size(); i++) {
             float x = padding + i * xInterval;
             canvas.drawLine(x, padding, x, padding + graphHeight, gridPaint);
@@ -90,7 +90,7 @@ public class CustomLineChart extends View {
             }
         }
 
-        // Desenhar linhas de dados
+        // desenha linhas dos dados
         for (int i = 0; i < dataPoints.size() - 1; i++) {
             float x1 = padding + i * xInterval;
             float y1 = padding + graphHeight - (dataPoints.get(i) * yScale);
@@ -100,7 +100,7 @@ public class CustomLineChart extends View {
             canvas.drawLine(x1, y1, x2, y2, linePaint);
         }
 
-        // Desenhar pontos de dados
+        // desenha pontos dos dados
         for (int i = 0; i < dataPoints.size(); i++) {
             float x = padding + i * xInterval;
             float y = padding + graphHeight - (dataPoints.get(i) * yScale);

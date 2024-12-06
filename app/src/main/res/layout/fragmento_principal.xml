@@ -113,7 +113,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="18°"
             android:textSize="48sp" />
 
         <!-- Minima e Máxima -->
@@ -146,16 +145,10 @@
                     android:id="@+id/valorTempMinima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12°"
-                    android:textSize="24sp"
+                    android:textSize="32sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/horarioTempMinima"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="08:59  |  08/10/2024"
-                    android:textSize="12sp" />
+
             </LinearLayout>
 
             <!-- Temperatura Máxima -->
@@ -180,16 +173,10 @@
                     android:id="@+id/valorTempMaxima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20°"
-                    android:textSize="24sp"
+                    android:textSize="32sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/horarioTempMaxima"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12:45  |  08/10/2024"
-                    android:textSize="12sp" />
+
             </LinearLayout>
         </LinearLayout>
 

@@ -6,6 +6,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiVazaoService {
-    @GET("fragmento3/dados") // Substitua pelo endpoint correto
+    @GET("fragmento3/dados")
     Call<DadosVazaoRio> getDadosFragmento3(@Query("intervalo") String intervalo);
 }
