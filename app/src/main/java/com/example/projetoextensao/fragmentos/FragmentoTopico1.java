@@ -25,30 +25,30 @@ public class FragmentoTopico1 extends Fragment {
 
         Spinner filtro = view.findViewById(R.id.spinnerFilter);
 
-        // Adiciona as opções de tempo ao Spinner
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.filtro_opcoes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filtro.setAdapter(adapter);
 
-        // Listener para quando uma opção for selecionada
+
         filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String opcaoSelecionada = parentView.getItemAtPosition(position).toString(); // Pega a opção selecionada
+                String opcaoSelecionada = parentView.getItemAtPosition(position).toString();
                 atualizarGrafico(opcaoSelecionada);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                // Não faz nada se nada for selecionado
+
             }
         });
 
         return view;
     }
 
-    //atualizar o gráfico com base na cidade
+
     private void atualizarGrafico(String opcoes) {
         if (opcoes.equals("24 horas")) {
             //atualizar

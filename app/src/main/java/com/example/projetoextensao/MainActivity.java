@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import com.example.projetoextensao.fragmentos.FragmentoTopico1;
 import com.example.projetoextensao.fragmentos.FragmentoTopico2;
@@ -14,15 +15,15 @@ import com.example.projetoextensao.fragmentos.FragmentoTopico3;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botaoSelecionado; // Variável para armazenar o botão atualmente selecionado
-    private Button botaoTopico1, botaoTopico2, botaoTopico3; // Botões principais
+    private Button botaoSelecionado;
+    private Button botaoTopico1, botaoTopico2, botaoTopico3;
     private ImageView logoUni, logoOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar botões
+
         botaoTopico1 = findViewById(R.id.botaoTopico1);
         botaoTopico2 = findViewById(R.id.botaoTopico2);
         botaoTopico3 = findViewById(R.id.botaoTopico3);
@@ -30,21 +31,21 @@ public class MainActivity extends AppCompatActivity {
         logoUni = findViewById(R.id.logoUnivali);
         logoOut = findViewById(R.id.logoOutro);
 
-        // Esconder botões inicialmente
+        // esconder botoes inicialmente
         setBotaoVisibilidade(false);
 
-        // Configurar listener para troca de fragmentos e atualização do estado do botão
+        // configura listener pra troca de fragmentos e atualizacao do estado do botao
         View.OnClickListener listener = view -> {
-            // Redefinir o estado do botão anteriormente selecionado
+            //troca o estado do botao que antes tava selecionado
             if (botaoSelecionado != null) {
                 botaoSelecionado.setSelected(false);
             }
 
-            // Marcar o botão clicado como selecionado
+            // marca o botao clicado como selecionado
             view.setSelected(true);
-            botaoSelecionado = (Button) view; // Atualizar o botão selecionado
+            botaoSelecionado = (Button) view; // atualiza o botao selecionado
 
-            // Trocar para o fragmento correspondente
+            // troca para o fragmento escolhido
             if (view.getId() == R.id.botaoTopico1) {
                 trocarFragmento(new FragmentoPrincipal());
             } else if (view.getId() == R.id.botaoTopico2) {
@@ -54,20 +55,25 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        // Configurar listeners nos botões
+        // configura listeners nos botoes
         botaoTopico1.setOnClickListener(listener);
         botaoTopico2.setOnClickListener(listener);
         botaoTopico3.setOnClickListener(listener);
 
-        // Mostrar o FragmentoInicial
+        // mostra o FragmentoInicial
         if (savedInstanceState == null) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
             trocarFragmento(new FragmentoInicial());
-            botaoTopico1.setSelected(true); // Marcar o primeiro botão como selecionado
-            botaoSelecionado = botaoTopico1; // Atualizar o botão selecionado
+            botaoTopico1.setSelected(true); // marca o primeiro botao como selecionado
+            botaoSelecionado = botaoTopico1; // atualiza o botao selecionado
         }
+
+
+        // defini icones e texto da barra de status como escuro
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    // Método para trocar fragmentos
+    //metodo para trocar fragmentos
     public void trocarFragmento(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
@@ -77,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
     public void trocarFragmentoSemVoltar(Fragment fragmento) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragmento)
-                .commit(); // Não adiciona ao BackStack
+                .commit(); //nao adiciona ao BackStack
     }
 
-    // Método para gerenciar a visibilidade dos botões
+    //metodo para gerenciar a visibilidade dos botoes e tambem pra trocar em cima a cor
     public void setBotaoVisibilidade(boolean visivel) {
         int visibilidade = visivel ? View.VISIBLE : View.GONE;
         botaoTopico1.setVisibility(visibilidade);
@@ -88,5 +94,6 @@ public class MainActivity extends AppCompatActivity {
         botaoTopico3.setVisibility(visibilidade);
         logoUni.setVisibility(visibilidade);
         logoOut.setVisibility(visibilidade);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.light_blue));
     }
 }

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0dp"
     android:background="#FEFEFE">
 
     <LinearLayout
@@ -19,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Título e cidade -->
+        <!-- Titulo da cidade -->
         <TextView
             android:id="@+id/tituloTopo"
             android:layout_width="match_parent"
@@ -33,7 +32,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Filtro de Tempo com Botões -->
+        <!-- Filtro de Tempo com Botoes -->
         <LinearLayout
             android:id="@+id/linearLayoutFiltro"
             android:layout_width="match_parent"
@@ -113,9 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:textColor="@color/dark_blue"
             android:textSize="48sp" />
 
-        <!-- Minima e Máxima -->
+        <!-- Minima e Maxima -->
         <LinearLayout
             android:id="@+id/linearLayoutTemp"
             android:layout_width="match_parent"
@@ -123,7 +123,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <!-- Temperatura Mínima -->
+            <!-- Temperatura Minima -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -138,20 +138,23 @@
                     android:id="@+id/tempMinima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/dark_blue"
                     android:text="Mínima"
+                    android:textStyle="bold"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/valorTempMinima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/dark_blue"
                     android:textSize="32sp"
                     android:textStyle="bold" />
 
 
             </LinearLayout>
 
-            <!-- Temperatura Máxima -->
+            <!-- Temperatura Maxima -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -167,12 +170,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Máxima"
+                    android:textColor="@color/dark_blue"
+                    android:textStyle="bold"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/valorTempMaxima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/dark_blue"
                     android:textSize="32sp"
                     android:textStyle="bold" />
 
@@ -180,45 +186,69 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tituloVento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="5dp"
-            android:text="VENTO"
-            android:textColor="@color/dark_blue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <!-- Seção de Vento -->
         <LinearLayout
-            android:id="@+id/linearLayoutVento"
+            android:id="@+id/linearLayoutVentoTodo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_marginHorizontal="30dp"
             android:background="@drawable/light_blue_background"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvDirecaoVento"
+                android:id="@+id/tituloVento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginRight="15dp"
-                android:text="Sudeste"
-                android:textSize="14sp" />
+                android:layout_marginBottom="5dp"
+                android:text="VENTO"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvVelocidadeVento"
-                android:layout_width="wrap_content"
+            <!-- Secao de Vento -->
+            <LinearLayout
+                android:id="@+id/linearLayoutVento"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
-                android:text="10 Km/h"
-                android:textSize="14sp" />
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/light_blue_background"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iconDirecaoVento"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/flecha_azul" />
+
+                <TextView
+                    android:id="@+id/tvDirecaoVento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iconVelocidadeVento"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/vento_icon" />
+
+                <TextView
+                    android:id="@+id/tvVelocidadeVento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

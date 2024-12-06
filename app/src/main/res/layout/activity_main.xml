@@ -12,12 +12,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#FEFEFE"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Layout dos botões -->
+    <!-- Layout dos botoes -->
     <LinearLayout
         android:id="@+id/button_container"
         android:layout_width="match_parent"
@@ -26,16 +27,16 @@
         android:layout_margin="10dp"
         android:orientation="vertical"
         android:padding="5dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_container">
+        app:layout_constraintTop_toBottomOf="@id/fragment_container"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutLogos"> <!-- Relacionado ao topo do layout de logos -->
 
         <Button
             android:id="@+id/botaoTopico1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/botao_frags"
             android:minWidth="0dp"
             android:minHeight="0dp"
@@ -47,7 +48,7 @@
             android:id="@+id/botaoTopico2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/botao_frags"
             android:minWidth="0dp"
             android:minHeight="0dp"
@@ -67,7 +68,7 @@
             app:backgroundTint="@null" />
     </LinearLayout>
 
-    <!-- Logotipos abaixo dos botões -->
+    <!-- Logotipos abaixo dos botoes -->
     <LinearLayout
         android:id="@+id/linearLayoutLogos"
         android:layout_width="match_parent"
@@ -75,22 +76,24 @@
         android:background="#FEFEFE"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/button_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <ImageView
             android:id="@+id/logoUnivali"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginEnd="45dp"
             android:src="@drawable/logo_univali" />
 
         <ImageView
             android:id="@+id/logoOutro"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/logo" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

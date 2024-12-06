@@ -45,7 +45,7 @@ public class FragmentoPrincipal extends Fragment {
         btn1m = view.findViewById(R.id.btn1m);
 
         carregarDados("24h");
-        // configurar evento de clique para os botoes
+        // configura evento de clique para os botoes
         View.OnClickListener listener = v -> {
             // atualiza o estado do botao selecionado
             if (botaoSelecionado != null) {

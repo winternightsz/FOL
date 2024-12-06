@@ -56,7 +56,7 @@ public class ChartTemporario extends View {
         if (novosValores != null && novosLabels != null && novosValores.length == novosLabels.length) {
             this.valores = novosValores;
             this.labels = novosLabels;
-            invalidate(); // Redesenha o gráfico com os novos dados
+            invalidate(); // redesenha o grafico com os novos dados
         }
     }
 

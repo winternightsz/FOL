@@ -30,7 +30,7 @@ public class CustomLineChart extends View {
 
         // pontos
         pointPaint = new Paint();
-        pointPaint.setColor(Color.RED);
+        pointPaint.setColor(Color.CYAN);
         pointPaint.setStyle(Paint.Style.FILL);
 
         // texto
@@ -51,7 +51,7 @@ public class CustomLineChart extends View {
     public void setData(List<Float> dataPoints, List<String> labels) {
         this.dataPoints = dataPoints;
         this.labels = labels;
-        invalidate(); // Redesenha o gráfico
+        invalidate(); // redesenha o grafico
     }
 
     @Override
@@ -65,46 +65,51 @@ public class CustomLineChart extends View {
         int width = getWidth();
         int height = getHeight();
 
-        int padding = 50;
-        int graphWidth = width - (2 * padding);
-        int graphHeight = height - (2 * padding);
+        int paddingLeft = 100;  // espaço na esquerda
+        int paddingRight = 50;  // espaço na direita
+        int paddingTop = 50;    // espaço no topo
+        int paddingBottom = 100; // espaço na parte inferior
+
+        int graphWidth = width - (paddingLeft + paddingRight);
+        int graphHeight = height - (paddingTop + paddingBottom);
 
         // determina escalas
         float maxData = getMax(dataPoints);
         float xInterval = graphWidth / (float) (dataPoints.size() - 1);
         float yScale = graphHeight / maxData;
 
-        // desenha grade horizontal
+        // desenha grid horizontal e valores do eixo Y com "m"
         for (int i = 0; i <= 5; i++) {
-            float y = padding + i * (graphHeight / 5f);
-            canvas.drawLine(padding, y, padding + graphWidth, y, gridPaint);
-            canvas.drawText(String.format("%.1f", maxData - (i * maxData / 5)), 10, y + 10, textPaint);
+            float y = paddingTop + i * (graphHeight / 5f);
+            canvas.drawLine(paddingLeft, y, paddingLeft + graphWidth, y, gridPaint);
+            String valor = String.format("%.1f m", maxData - (i * maxData / 5));
+            canvas.drawText(valor, paddingLeft - 80, y + 10, textPaint);
         }
 
         // desenha grade vertical
-        for (int i = 0; i < dataPoints.size(); i++) {
-            float x = padding + i * xInterval;
-            canvas.drawLine(x, padding, x, padding + graphHeight, gridPaint);
-            if (i < labels.size()) {
-                canvas.drawText(labels.get(i), x - 20, padding + graphHeight + 30, textPaint);
-            }
+        for (int i = 0; i < labels.size(); i++) {
+            float x = paddingLeft + i * xInterval;
+            canvas.drawLine(x, paddingTop, x, paddingTop + graphHeight, gridPaint);
+            canvas.drawText(labels.get(i), x - 20, paddingTop + graphHeight + 30, textPaint);
         }
 
         // desenha linhas dos dados
         for (int i = 0; i < dataPoints.size() - 1; i++) {
-            float x1 = padding + i * xInterval;
-            float y1 = padding + graphHeight - (dataPoints.get(i) * yScale);
-            float x2 = padding + (i + 1) * xInterval;
-            float y2 = padding + graphHeight - (dataPoints.get(i + 1) * yScale);
+            float x1 = paddingLeft + i * xInterval;
+            float y1 = paddingTop + graphHeight - (dataPoints.get(i) * yScale);
+            float x2 = paddingLeft + (i + 1) * xInterval;
+            float y2 = paddingTop + graphHeight - (dataPoints.get(i + 1) * yScale);
 
             canvas.drawLine(x1, y1, x2, y2, linePaint);
         }
 
         // desenha pontos dos dados
         for (int i = 0; i < dataPoints.size(); i++) {
-            float x = padding + i * xInterval;
-            float y = padding + graphHeight - (dataPoints.get(i) * yScale);
+            float x = paddingLeft + i * xInterval;
+            float y = paddingTop + graphHeight - (dataPoints.get(i) * yScale);
             canvas.drawCircle(x, y, 8f, pointPaint);
+            String valor = String.format("%.1f m", dataPoints.get(i));
+            canvas.drawText(valor, x - 20, y - 20, textPaint); // Ajustar a posição dos valores para evitar sobreposição
         }
     }
 
@@ -116,5 +121,13 @@ public class CustomLineChart extends View {
             }
         }
         return max;
+    }
+
+    public List<Float> getValores() {
+        return dataPoints;
+    }
+
+    public List<String> getLabels() {
+        return labels;
     }
 }
