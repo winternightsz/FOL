@@ -3,10 +3,10 @@
 Este repositório contém o código-fonte e um arquivo APK para uso e testes.
 
 ## Sobre o Projeto
-Projeto de extensão universitária
-Universidade do Vale do Itajaí 
-Disciplina de Programação para Dispositivos Móveis sob orientação do professor: Lucas Debatin.
-Alunos: Helena Becker Piazera, Henrique Cipriani Ertal e Izabela Andreazza.
+- Projeto de extensão universitária
+- Universidade do Vale do Itajaí 
+- Disciplina de Programação para Dispositivos Móveis sob orientação do professor: Lucas Debatin.
+- Alunos: Helena Becker Piazera, Henrique Cipriani Ertal e Izabela Andreazza.
 
 ## Estrutura do Repositório
 - `app/`: Contém o código-fonte principal do aplicativo.
